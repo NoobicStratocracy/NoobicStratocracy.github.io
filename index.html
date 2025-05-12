@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Noobic Stratocracy</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://noobicstratocracy.github.io/favicon.png"
+    />
+    <meta content="The Noobic Stratocracy" property="og:title" />
+    <meta
+      content="Join the Stratocracy and support your nation in its fight against tyranny!"
+      property="og:description"
+    />
+    <meta
+      content="https://noobicstratocracy.github.io/index.html"
+      property="og:url"
+    />
+    <meta
+      content="https://noobicstratocracy.github.io/favicon.png"
+      property="og:image"
+    />
+    <meta content="#4acf4f" data-react-helmet="true" name="theme-color" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Oswald", sans-serif;
+        background: #e0f2fe;
+        color: #064e3b;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      header {
+        background: #0369a1;
+        padding: 5rem 1rem;
+        text-align: center;
+        position: relative;
+        animation: fadeIn 1s ease-out;
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+        letter-spacing: 0.1em;
+        color: #fef3c7;
+      }
+
+      header .badge {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: #62c263;
+        color: #064e3b;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+
+      nav {
+        background: #deffdb;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1.5rem 0;
+        border-top: 2px solid #0369a1;
+        animation: fadeIn 1s ease-out;
+      }
+
+      nav a {
+        font-weight: 700;
+        position: relative;
+      }
+
+      nav a:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        background: #fde047;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+      }
+
+      nav a:hover:after {
+        width: 100%;
+      }
+
+      .hero {
+        flex: 1;
+        display: flex;
+        background: #95c9e5;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 4rem 2rem;
+        overflow: hidden;
+        background-image: url("https://yourimageurl.com/hero-background.jpg");
+        background-size: cover;
+        background-position: center;
+        animation: heroAnimation 1.5s ease-out;
+      }
+
+      .hero:before {
+        content: "";
+        position: absolute;
+        width: 60vw;
+        height: 60vw;
+        background: rgba(255, 224, 102, 0.2);
+        border-radius: 50%;
+        top: -12vw;
+        right: -15vw;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        text-align: center;
+        z-index: 1;
+        opacity: 0;
+        animation: fadeIn 2s ease-out 0.5s forwards;
+      }
+
+      .hero-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #0369a1;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background: #064e3b;
+        color: #fef3c7;
+        border: 2px solid #fde047;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: #fde047;
+        color: #064e3b;
+      }
+
+      .features,
+      .benefits {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        padding: 3rem 1rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .features .section-title,
+      .benefits .section-title {
+        grid-column: 1 / -1;
+        font-size: 2.2rem;
+        color: #014d4d;
+        margin-bottom: 2rem;
+      }
+
+      .feature,
+      .benefit {
+        background: #f0fdfa;
+        border: 2px solid #a7f3d0;
+        padding: 2.5rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .feature:after,
+      .benefit:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(3, 105, 161, 0.1);
+        bottom: -20px;
+        left: -20px;
+        transform: rotate(45deg);
+      }
+
+      .feature:hover,
+      .benefit:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature h3,
+      .benefit h3 {
+        margin-bottom: 1.2rem;
+        font-size: 1.5rem;
+        color: #064e3b;
+      }
+
+      .feature p,
+      .benefit p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .benefits {
+        background: #fff9d2;
+      }
+
+      .faq {
+        padding: 3rem 1rem;
+        background: #e0f2fe;
+      }
+
+      .faq h3 {
+        color: #0369a1;
+        margin-bottom: 1.5rem;
+      }
+
+      .faq-item {
+        margin-bottom: 2rem;
+      }
+
+      .faq-item summary {
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      .faq-item p {
+        margin-top: 0.8rem;
+        padding-left: 1rem;
+        font-size: 1rem;
+        color: #064e3b;
+      }
+
+      footer {
+        background: #0369a1;
+        color: #fef3c7;
+        text-align: left;
+        padding: 3rem 2rem;
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+      }
+
+      footer h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+        color: #fde047;
+      }
+
+      footer ul {
+        list-style: none;
+      }
+
+      footer ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .parallax-section {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fef3c7;
+        text-align: center;
+        padding: 6rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .parallax-section h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .parallax-section p {
+        font-size: 1.25rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes heroAnimation {
+        0% {
+          transform: scale(1.1);
+          opacity: 0;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .intro-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #0f0f0f;
+        color: #2fb14f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Oswald", sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+        z-index: 9999;
+        animation: overlayFade 6s ease-in-out forwards;
+      }
+
+      @keyframes overlayFade {
+        0% {
+          opacity: 1;
+        }
+
+        80% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .typewrite::after {
+        content: '|';
+        animation: blink 0.7s steps(1) infinite;
+      }
+
+      @keyframes blink {
+
+        0%,
+        100% {
+          opacity: 1
+        }
+
+        50% {
+          opacity: 0
+        }
+      }
+
+      <
+    </style>
+  </head>
+
+  <body>
+    <div class="intro-overlay">
+      <span class="typewrite" id="type-target"></span>
+    </div>
+    <header>
+      <h1>The Noobic Stratocracy</h1>
+      <div class="badge">Enlist Now</div>
+    </header>
+    <nav>
+      <a href="#events">Events</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#games">Games</a>
+      <a href="#join">Join</a>
+    </nav>
+    <section class="hero" id="about">
+      <div class="hero-content">
+        <h2>Join the Noobic Stratocracy</h2>
+        <p>
+          data-react-helmet wahaaa uhhhhhhhhhhhhhh something somethiong lorem
+          ipsum ladade da da da
+        </p>
+      </div>
+    </section>
+
+    <section
+      id="apply"
+      style="
+        padding: 0.75rem;
+        text-align: center;
+        background: #fef3c7;
+        line-height: 2.33rem;
+      "
+    >
+      <h2>Ready to enlist?</h2>
+      <p>Click below to join the noobic communications server.</p>
+      <a
+        href="https://discord.gg/noobia"
+        class="btn-primary"
+        style="margin-top: 0.4rem"
+        >Enlist</a
+      >
+    </section>
+
+    <section
+      class="parallax-section"
+      style="
+        background-image: url('https://358tj4.csb.app/testbackground2.png');
+      "
+    >
+      <div class="fade-in-up">
+        <h2>Our Mission</h2>
+        <p>
+          KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL
+          VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK
+          KILL VAK
+        </p>
+      </div>
+    </section>
+
+    <section class="features" id="events">
+      <div class="section-title">Events</div>
+      <div class="feature">
+        <h3>Defensive Training</h3>
+        <p>Scrimmage against your fellow noobs uhhh</p>
+      </div>
+    </section>
+
+    <section
+      class="parallax-section"
+      style="
+        background-image: url('https://358tj4.csb.app/testbackground1.png');
+      "
+    >
+      <div class="fade-in-up">
+        <h2>Battles</h2>
+        <p>
+          KILL VAKKIES KILL VAKKIES KILL VAKKIES KILL VAKKIES KILL VAKKIES KILL
+          VAKKIES KILL VAKKIES KILL VAKKIES KILL VAKKIES
+        </p>
+      </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+      <div class="section-title">Why Join the Noobic Stratocracy?</div>
+      <div class="benefit">
+        <h3>Unrivaled Power</h3>
+        <p>Really cooool</p>
+      </div>
+      <div class="benefit">
+        <h3>Outrally Everyone</h3>
+        <p>And leave</p>
+      </div>
+      <div class="benefit">
+        <h3>Culture</h3>
+        <p>uhhhhhhhhhutgv kjhbnjlmmk;l,</p>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" style="margin-top: 5rem">
+      <div class="section-title" style="font-size: 1.5rem">
+        Frequently Asked Questions
+      </div>
+      <br />
+      <details class="faq-item">
+        <summary>Why am I why why</summary>
+        <p>Fart</p>
+      </details>
+      <details class="faq-item">
+        <summary>GHEEL!!!!</summary>
+        <p>helllppp</p>
+      </details>
+      <details class="faq-item">
+        <summary>Whaaaaaat</summary>
+        <p>dfwtyxjchgvujbigusagkgfhvbwliahdkgsvlahjdgwoluai</p>
+      </details>
+    </section>
+
+    <footer>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: placeholder@placeholder.placeholder</li>
+          <li>Discord User: "dipstick."</li>
+          <li>
+            Discord Server:
+            <a href="https://discord.gg/noobia">discord.gg/noobia</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Roblox Groups</h4>
+        <ul>
+          <li>
+            <a
+              href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+              >Main Group</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.roblox.com/communities/35903039/3rd-Noob-Div-sion"
+              >3rd Noob Divison</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.roblox.com/communities/35848829/2nd-Noob-Div-sion"
+              >2nd Noob Divison</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.roblox.com/communities/35848809/1st-Noob-Div-sion"
+              >1st Noob Divison</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Games</h4>
+        <ul>
+          <li>
+            <a
+              href="https://www.roblox.com/games/98626216952426/Naramo-Nuclear-Plant"
+              >Naramo Nuclear Plant</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.roblox.com/games/6843213754/Centurion-Shoreline"
+              >Centurion Shoreline</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.roblox.com/games/7020320814/Sagittarius-Hydroelectric-Dam"
+              >Sagittarius Hydroelectric Dam</a
+            >
+          </li>
+          <li>
+            <a href="https://www.roblox.com/games/5361599999/Noobic-Sea"
+              >Noobic Sea</a
+            >
+          </li>
+          <li>
+            <a href="https://www.roblox.com/games/11747678032/South-Noobic-Sea"
+              >South Noobic Sea</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Socials</h4>
+        <ul>
+          <li><a href="https://discord.gg/noobia">Discord</a></li>
+          <li>
+            <a
+              href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+              >Roblox Group</a
+            >
+          </li>
+          <li><a href="https://google.com">Youtube</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      const lines = ["Booting systems...", "Establishing uplink..."];
+      const target = document.getElementById("type-target");
+      let i = 0;
+      let char = 0;
+
+      function typeLine() {
+        if (i < lines.length) {
+          if (char < lines[i].length) {
+            target.textContent += lines[i].charAt(char++);
+            setTimeout(typeLine, 50);
+          } else {
+            target.textContent += "\n";
+            char = 0;
+            i++;
+            setTimeout(() => {
+              target.textContent = "";
+              target.classList.remove("typewrite");
+              typeLine();
+            }, 333);
+          }
+        } else {
+        }
+      }
+
+      window.addEventListener("load", () => {
+        setTimeout(typeLine, 600);
+      });
+    </script>
+  </body>
+</html>
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll(".fade-in-up").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
