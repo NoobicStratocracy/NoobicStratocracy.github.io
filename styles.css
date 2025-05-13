@@ -380,7 +380,7 @@ html {
   letter-spacing: 0.1em;
   z-index: 9999;
   pointer-events: none;
-  animation: overlayFade 3.33s ease-in-out forwards;
+  animation: overlayFade 2.8s ease-in-out forwards;
 }
 
 @keyframes overlayFade {
