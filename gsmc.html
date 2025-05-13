@@ -7,7 +7,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="favicon.png"
+      href="https://noobicstratocracy.github.io/favicon.png"
     />
     <meta content="Ground Service Medical Corps" property="og:title" />
     <meta
@@ -15,444 +15,276 @@
       property="og:description"
     />
     <meta
-      content="https://eastnoobia.com/gsmc"
+      content="https://noobicstratocracy.github.io/gsmc.html"
       property="og:url"
     />
-    <meta content="gsmcLOGO.png" property="og:image" />
+    <meta
+      content="https://noobicstratocracy.github.io/gsmcLOGO.png"
+      property="og:image"
+    />
     <meta content="#4acf4f" data-react-helmet="true" name="theme-color" />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Oswald", sans-serif;
-        background: #e0f2fe;
-        color: #064e3b;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      header {
-        background: #0369a1;
-        padding: 3rem 1rem;
-        text-align: center;
-        position: relative;
-      }
-      header h1 {
-        font-size: 3rem;
-        letter-spacing: 0.1em;
-        color: #fef3c7;
-      }
-      header .badge {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        background: #62c263;
-        color: #064e3b;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-      }
-
-      nav {
-        background: #deffdb;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem 0;
-        border-top: 2px solid #0369a1;
-      }
-      nav a {
-        font-weight: 700;
-        position: relative;
-      }
-      nav a:after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 3px;
-        background: #fde047;
-        transition: width 0.3s;
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-      }
-      nav a:hover:after {
-        width: 100%;
-      }
-
-      .hero {
-        flex: 1;
-        display: flex;
-        background: #95c9e5;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: 4rem 2rem;
-        overflow: hidden;
-      }
-      .hero:before {
-        content: "";
-        position: absolute;
-        width: 60vw;
-        height: 60vw;
-        background: rgba(255, 224, 102, 0.2);
-        border-radius: 50%;
-        top: -12vw;
-        right: -15vw;
-      }
-      .hero-content {
-        max-width: 600px;
-        text-align: center;
-        z-index: 1;
-      }
-      .hero-content h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #0369a1;
-      }
-      .hero-content p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-      }
-      .btn-primary {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        background: #064e3b;
-        color: #fef3c7;
-        border: 2px solid #fde047;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        transition: background 0.3s, color 0.3s;
-      }
-      .btn-primary:hover {
-        background: #fde047;
-        color: #064e3b;
-      }
-
-      .features,
-      .benefits {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;
-        padding: 3rem 1rem;
-        max-width: 1300px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .features .section-title,
-      .benefits .section-title {
-        grid-column: 1 / -1;
-        font-size: 2.2rem;
-        color: #014d4d;
-        margin-bottom: 2rem;
-      }
-
-      .feature,
-      .benefit {
-        background: #f0fdfa;
-        border: 2px solid #a7f3d0;
-        padding: 2.5rem 1.5rem;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
-      .feature:after,
-      .benefit:after {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: rgba(3, 105, 161, 0.1);
-        bottom: -20px;
-        left: -20px;
-        transform: rotate(45deg);
-      }
-      .feature:hover,
-      .benefit:hover {
-        transform: translateY(-10px);
-      }
-      .feature h3,
-      .benefit h3 {
-        margin-bottom: 1.2rem;
-        font-size: 1.5rem;
-        color: #064e3b;
-      }
-      .feature p,
-      .benefit p {
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-
-      .benefits {
-        background: #fff9d2;
-      }
-
-      .faq {
-        padding: 3rem 1rem;
-        background: #e0f2fe;
-      }
-      .faq h3 {
-        color: #0369a1;
-        margin-bottom: 1.5rem;
-      }
-      .faq-item {
-        margin-bottom: 2rem;
-      }
-      .faq-item summary {
-        font-weight: 700;
-        cursor: pointer;
-        font-size: 1.2rem;
-      }
-      .faq-item p {
-        margin-top: 0.8rem;
-        padding-left: 1rem;
-        font-size: 1rem;
-        color: #064e3b;
-      }
-
-      footer {
-        background: #0369a1;
-        color: #fef3c7;
-        text-align: left;
-        padding: 3rem 2rem;
-        font-size: 1rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2rem;
-      }
-      footer h4 {
-        font-size: 1.2rem;
-        margin-bottom: 1.2rem;
-        color: #fde047;
-      }
-      footer ul {
-        list-style: none;
-      }
-      footer ul li {
-        margin-bottom: 0.8rem;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Ground Service Medical Corps</h1>
-      <div class="badge">Recruitment Open</div>
-    </header>
-    <nav>
-      <a href="#roles">Roles</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#faq">FAQ</a>
-      <a href="#apply">Apply Here</a>
-    </nav>
-    <section class="hero" id="about">
-      <div class="hero-content">
-        <h2>Enlist & Save Lives</h2>
-        <p>
-          Ensure the health of our brave soldiers, train for intensive medical
-          care, and provide support in dangerous environments.
-        </p>
-      </div>
-    </section>
-
-    <section
-      id="apply"
-      style="
-        padding: 0.75rem;
-        text-align: center;
-        background: #fef3c7;
-        line-height: 2.33rem;
-      "
-    >
-      <h2>Ready to Join?</h2>
-      <p>Click below to join our communications hub.</p>
-      <a
-        href="https://discord.gg/d6qpSXymAB"
-        class="btn-primary"
-        style="margin-top: 0.4rem"
-        >Apply Now</a
-      >
-    </section>
-
-    <section class="features" id="roles">
-      <div class="section-title">Key Roles</div>
-      <div class="feature">
-        <h3>Corpsman</h3>
-        <p>
-          Corpsmen are the backbone of the GSMC, they consist of most of its
-          forces. Corpsmen are competent at rendering aid and stabilizing
-          wounded until more advanced aid can be rendered.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Senior Corpsmen</h3>
-        <p>
-          Senior Corpsmen are experienced medics who have proven themselves
-          competent on the field of battle. Senior Corpsmen are also active
-          members of the medical community and assist their peers when needed.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Field Surgeon</h3>
-        <p>
-          Field Surgeons are the officers of the GSMC, able to host events and
-          lead small squads of medics on the battlefield. Field Surgeons are
-          experienced in leadership and all aspects of the Medical Corps.
-        </p>
-      </div>
-    </section>
-
-    <section class="benefits" id="benefits">
-      <div class="section-title">Why Join?</div>
-      <div class="benefit">
-        <h3>Training</h3>
-        <p>
-          Gain certifications in trauma care, first aid, and basic medical care.
-          Improve your combat skills in Medical Corps exclusive combat
-          trainings.
-        </p>
-      </div>
-      <div class="benefit">
-        <h3>Benefits</h3>
-        <p>
-          Enjoy custom morphs on Naramo (Terms Apply), a badge for your formals,
-          and access to the Naramo medical class.
-        </p>
-      </div>
-      <div class="benefit">
-        <h3>Impact</h3>
-        <p>
-          Deploy across many environments and support your fellow soldiers in
-          the fight against the West.
-        </p>
-      </div>
-    </section>
-
-    <section class="faq" id="faq" style="margin-top: 5rem">
-      <div class="section-title" style="font-size: 1.5rem">
-        Frequently Asked Questions
-      </div>
-      <br />
-      <details class="faq-item">
-        <summary>What are the criteria to enlist?</summary>
-        <p>Candidates must be an infantryman for 1 Week or more.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is prior medical experience required?</summary>
-        <p>
-          No, we offer full training as you progress; however having some
-          knowledge will assist you.
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>What if we don't want to roleplay?</summary>
-        <p>
-          The GSMC offers 2 platoons, the 29th platoon focuses on roleplay,
-          while the 33rd platoon focuses on combat support, enlistees can choose
-          either.
-        </p>
-      </details>
-    </section>
-
-    <footer>
-      <div>
-        <h4>Contact</h4>
+    <div class="layout-wrapper">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+      <aside class="sidebar" id="sidebar">
+        <h2>Navigation</h2>
         <ul>
-          <li>Email: placeholder@placeholder.placeholder</li>
-          <li>Discord User: "dipstick."</li>
-          <li>
-            Discord Server:
-            <a href="https://discord.gg/noobia">discord.gg/noobia</a>
-          </li>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/divisions">Divisions</a></li>
+          <li><a href="/laws">Laws</a></li>
+          <li><a href="/ranks">Ranks</a></li>
+          <li><a href="/ncos">Non-Commissioned Officer List</a></li>
+          <li><a href="/library">Library</a></li>
         </ul>
-      </div>
-      <div>
-        <h4>Roblox Groups</h4>
-        <ul>
-          <li>
-            <a
-              href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
-              >Main Group</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.roblox.com/communities/35903039/3rd-Noob-Div-sion"
-              >3rd Noob Divison</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.roblox.com/communities/35848829/2nd-Noob-Div-sion"
-              >2nd Noob Divison</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.roblox.com/communities/35848809/1st-Noob-Div-sion"
-              >1st Noob Divison</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4>Games</h4>
-        <ul>
-          <li>
-            <a
-              href="https://www.roblox.com/games/98626216952426/Naramo-Nuclear-Plant"
-              >Naramo Nuclear Plant</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.roblox.com/games/6843213754/Centurion-Shoreline"
-              >Centurion Shoreline</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.roblox.com/games/7020320814/Sagittarius-Hydroelectric-Dam"
-              >Sagittarius Hydroelectric Dam</a
-            >
-          </li>
-          <li>
-            <a href="https://www.roblox.com/games/5361599999/Noobic-Sea"
-              >Noobic Sea</a
-            >
-          </li>
-          <li>
-            <a href="https://www.roblox.com/games/11747678032/South-Noobic-Sea"
-              >South Noobic Sea</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4>Socials</h4>
-        <ul>
-          <li><a href="https://discord.gg/noobia">Discord</a></li>
-          <li>
-            <a
-              href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
-              >Roblox Group</a
-            >
-          </li>
-        </ul>
-      </div>
-    </footer>
+      </aside>
+      <main class="main-content">
+        <header>
+          <h1>Ground Service Medical Corps</h1>
+          <div class="badge">Recruitment Open</div>
+        </header>
+        <nav>
+          <a href="#roles">Roles</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#faq">FAQ</a>
+          <a href="#apply">Apply Here</a>
+        </nav>
+
+        <section
+          class="parallax-section"
+          style="
+            background-image: url('https://358tj4.csb.app/testbackground1.png');
+          "
+        >
+          <div class="fade-in-up">
+            <h2>Enlist & Save Lives</h2>
+            <p>
+              Ensure the health of our brave soldiers, train for intensive
+              medical care, and provide support in dangerous environments.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="apply"
+          style="
+            padding: 0.75rem;
+            text-align: center;
+            background: #fef3c7;
+            line-height: 2.33rem;
+          "
+        >
+          <h2>Ready to Join?</h2>
+          <p>Click below to join our communications hub.</p>
+          <a
+            href="https://discord.gg/d6qpSXymAB"
+            class="btn-primary"
+            style="margin-top: 0.4rem"
+            >Apply Now</a
+          >
+        </section>
+
+        <section class="features" id="roles">
+          <div class="section-title">Key Roles</div>
+          <div class="feature">
+            <h3>Corpsman</h3>
+            <p>
+              Corpsmen are the backbone of the GSMC, they consist of most of its
+              forces. Corpsmen are competent at rendering aid and stabilizing
+              wounded until more advanced aid can be rendered.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Senior Corpsmen</h3>
+            <p>
+              Senior Corpsmen are experienced medics who have proven themselves
+              competent on the field of battle. Senior Corpsmen are also active
+              members of the medical community and assist their peers when
+              needed.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Field Surgeon</h3>
+            <p>
+              Field Surgeons are the officers of the GSMC, able to host events
+              and lead small squads of medics on the battlefield. Field Surgeons
+              are experienced in leadership and all aspects of the Medical
+              Corps.
+            </p>
+          </div>
+        </section>
+
+        <section class="benefits" id="benefits">
+          <div class="section-title">Why Join?</div>
+          <div class="benefit">
+            <h3>Training</h3>
+            <p>
+              Gain certifications in trauma care, first aid, and basic medical
+              care. Improve your combat skills in Medical Corps exclusive combat
+              trainings.
+            </p>
+          </div>
+          <div class="benefit">
+            <h3>Benefits</h3>
+            <p>
+              Enjoy custom morphs on Naramo (Terms Apply), a badge for your
+              formals, and access to the Naramo medical class.
+            </p>
+          </div>
+          <div class="benefit">
+            <h3>Impact</h3>
+            <p>
+              Deploy across many environments and support your fellow soldiers
+              in the fight against the West.
+            </p>
+          </div>
+        </section>
+
+        <section class="faq" id="faq" style="margin-top: 5rem">
+          <div class="section-title" style="font-size: 1.5rem">
+            Frequently Asked Questions
+          </div>
+          <br />
+          <details class="faq-item">
+            <summary>What are the criteria to enlist?</summary>
+            <p>Candidates must be an infantryman for 1 Week or more.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is prior medical experience required?</summary>
+            <p>
+              No, we offer full training as you progress; however having some
+              knowledge will assist you.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>What if we don't want to roleplay?</summary>
+            <p>
+              The GSMC offers 2 platoons, the 29th platoon focuses on roleplay,
+              while the 33rd platoon focuses on combat support, enlistees can
+              choose either.
+            </p>
+          </details>
+        </section>
+
+        <footer>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li>Email: placeholder@placeholder.placeholder</li>
+              <li>Discord User: "dipstick."</li>
+              <li>
+                Discord Server:
+                <a href="https://discord.gg/noobia">discord.gg/noobia</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Roblox Groups</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+                  >Main Group</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35903039/3rd-Noob-Div-sion"
+                  >3rd Noob Divison</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35848829/2nd-Noob-Div-sion"
+                  >2nd Noob Divison</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35848809/1st-Noob-Div-sion"
+                  >1st Noob Divison</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Games</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/98626216952426/Naramo-Nuclear-Plant"
+                  >Naramo Nuclear Plant</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/6843213754/Centurion-Shoreline"
+                  >Centurion Shoreline</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/7020320814/Sagittarius-Hydroelectric-Dam"
+                  >Sagittarius Hydroelectric Dam</a
+                >
+              </li>
+              <li>
+                <a href="https://www.roblox.com/games/5361599999/Noobic-Sea"
+                  >Noobic Sea</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/11747678032/South-Noobic-Sea"
+                  >South Noobic Sea</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Socials</h4>
+            <ul>
+              <li><a href="https://discord.gg/noobia">Discord</a></li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+                  >Roblox Group</a
+                >
+              </li>
+              <li><a href="https://google.com">Youtube</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".fade-in-up").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.querySelector(".main-content");
+        sidebar.classList.toggle("open");
+        mainContent.classList.toggle("sidebar-open");
+      }
+    </script>
   </body>
 </html>
