@@ -4,417 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Noobic Stratocracy</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="favicon.png"
-    />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
     <meta content="The Noobic Stratocracy" property="og:title" />
     <meta
       content="Join the Stratocracy and support your nation in its fight against tyranny!"
       property="og:description"
     />
-    <meta
-      content="eastnoobia.com"
-      property="og:url"
-    />
-    <meta
-      content="NoobicFlag.png"
-      property="og:image"
-    />
+    <meta content="eastnoobia.com" property="og:url" />
+    <meta content="NoobicFlag.png" property="og:image" />
     <meta content="#4acf4f" data-react-helmet="true" name="theme-color" />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Oswald", sans-serif;
-        background: #e0f2fe;
-        color: #064e3b;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      header {
-        background: #0369a1;
-        padding: 5rem 1rem;
-        text-align: center;
-        position: relative;
-        animation: fadeIn 1s ease-out;
-      }
-
-      header h1 {
-        font-size: 3.5rem;
-        letter-spacing: 0.1em;
-        color: #fef3c7;
-      }
-
-      header .badge {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        background: #62c263;
-        color: #064e3b;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-      }
-
-      nav {
-        background: #deffdb;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1.5rem 0;
-        border-top: 2px solid #0369a1;
-        animation: fadeIn 1s ease-out;
-      }
-
-      nav a {
-        font-weight: 700;
-        position: relative;
-      }
-
-      nav a:after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 3px;
-        background: #fde047;
-        transition: width 0.3s;
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-      }
-
-      nav a:hover:after {
-        width: 100%;
-      }
-
-      .hero {
-        flex: 1;
-        display: flex;
-        background: #95c9e5;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: 4rem 2rem;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-        animation: heroAnimation 1.5s ease-out;
-      }
-
-      .hero:before {
-        content: "";
-        position: absolute;
-        width: 60vw;
-        height: 60vw;
-        background: rgba(255, 224, 102, 0.2);
-        border-radius: 50%;
-        top: -12vw;
-        right: -15vw;
-      }
-
-      .hero-content {
-        max-width: 600px;
-        text-align: center;
-        z-index: 1;
-        opacity: 0;
-        animation: fadeIn 2s ease-out 0.5s forwards;
-      }
-
-      .hero-content h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #0369a1;
-      }
-
-      .hero-content p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .btn-primary {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        background: #064e3b;
-        color: #fef3c7;
-        border: 2px solid #fde047;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        transition: background 0.3s, color 0.3s;
-      }
-
-      .btn-primary:hover {
-        background: #fde047;
-        color: #064e3b;
-      }
-
-      .features,
-      .benefits {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;
-        padding: 3rem 1rem;
-        max-width: 1300px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .features .section-title,
-      .benefits .section-title {
-        grid-column: 1 / -1;
-        font-size: 2.2rem;
-        color: #014d4d;
-        margin-bottom: 2rem;
-      }
-
-      .feature,
-      .benefit {
-        background: #f0fdfa;
-        border: 2px solid #a7f3d0;
-        padding: 2.5rem 1.5rem;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
-
-      .feature:after,
-      .benefit:after {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: rgba(3, 105, 161, 0.1);
-        bottom: -20px;
-        left: -20px;
-        transform: rotate(45deg);
-      }
-
-      .feature:hover,
-      .benefit:hover {
-        transform: translateY(-10px);
-      }
-
-      .feature h3,
-      .benefit h3 {
-        margin-bottom: 1.2rem;
-        font-size: 1.5rem;
-        color: #064e3b;
-      }
-
-      .feature p,
-      .benefit p {
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-
-      .benefits {
-        background: #fff9d2;
-      }
-
-      .faq {
-        padding: 3rem 1rem;
-        background: #e0f2fe;
-      }
-
-      .faq h3 {
-        color: #0369a1;
-        margin-bottom: 1.5rem;
-      }
-
-      .faq-item {
-        margin-bottom: 2rem;
-      }
-
-      .faq-item summary {
-        font-weight: 700;
-        cursor: pointer;
-        font-size: 1.2rem;
-      }
-
-      .faq-item p {
-        margin-top: 0.8rem;
-        padding-left: 1rem;
-        font-size: 1rem;
-        color: #064e3b;
-      }
-
-      footer {
-        background: #0369a1;
-        color: #fef3c7;
-        text-align: left;
-        padding: 3rem 2rem;
-        font-size: 1rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2rem;
-      }
-
-      footer h4 {
-        font-size: 1.2rem;
-        margin-bottom: 1.2rem;
-        color: #fde047;
-      }
-
-      footer ul {
-        list-style: none;
-      }
-
-      footer ul li {
-        margin-bottom: 0.8rem;
-      }
-
-      .parallax-section {
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: #fef3c7;
-        text-align: center;
-        padding: 6rem 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .parallax-section h2 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-
-      .parallax-section p {
-        font-size: 1.25rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .fade-in-up {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 1s ease-out, transform 1s ease-out;
-      }
-
-      .fade-in-up.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes heroAnimation {
-        0% {
-          transform: scale(1.1);
-          opacity: 0;
-        }
-
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .intro-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #0f0f0f;
-        color: #2fb14f;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Oswald", sans-serif;
-        font-size: 2.5rem;
-        letter-spacing: 0.1em;
-        z-index: 9999;
-        pointer-events: none;
-        animation: overlayFade 3.33s ease-in-out forwards;
-      }
-
-      @keyframes overlayFade {
-        0% {
-          opacity: 1;
-        }
-
-        80% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-        }
-      }
-
-      .typewrite::after {
-        content: '|';
-        animation: blink 0.7s steps(1) infinite;
-      }
-
-      @keyframes blink {
-
-        0%,
-        100% {
-          opacity: 1
-        }
-
-        50% {
-          opacity: 0
-        }
-      }
-
-      <
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
     <div class="intro-overlay">
       <span class="typewrite" id="type-target"></span>
     </div>
+
+    <div class="layout-wrapper">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+      <aside class="sidebar" id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/divisions">Divisions</a></li>
+          <li><a href="/laws">Laws</a></li>
+          <li><a href="/ranks">Ranks</a></li>
+          <li><a href="/ncos">Non-Commissioned Officer List</a></li>
+          <li><a href="/library">Library</a></li>
+        </ul>
+      </aside>
+      <main class="main-content">
+
     <header>
       <h1>The Noobic Stratocracy</h1>
-      <div class="badge">Enlist Now</div>
     </header>
     <nav>
       <a href="#events">Events</a>
-      <a href="#divisions">Divisions</a>
-      <a href="#games">Games</a>
-      <a href="#join">Join</a>
+      <a href="#battles">Battles</a>
+      <a href="#faq">FAQ</a>
+      <a href="#apply">Enlist</a>
     </nav>
     <section class="hero" id="about">
       <div class="hero-content">
         <h2>Join the Noobic Stratocracy</h2>
         <p>
-          data-react-helmet wahaaa uhhhhhhhhhhhhhh something somethiong lorem
-          ipsum ladade da da da
+          The Noobic Stratocracy, most commonly referred as "East Noobia", is the governing state and regional power of the Continent of Noobia. Tanker, Infantryman, Operator, who will you be?
         </p>
       </div>
     </section>
@@ -429,7 +68,7 @@
       "
     >
       <h2>Ready to enlist?</h2>
-      <p>Click below to join the noobic communications server.</p>
+      <p>Click below to join the Stratocracy's communications server.</p>
       <a
         href="https://discord.gg/noobia"
         class="btn-primary"
@@ -440,16 +79,12 @@
 
     <section
       class="parallax-section"
-      style="
-        background-image: url('testbackground2.png');
-      "
+      style="background-image: url('testbackground2.png')"
     >
       <div class="fade-in-up">
         <h2>Our Mission</h2>
         <p>
-          KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL
-          VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK KILL VAK
-          KILL VAK
+          Our mission is to defend our territories, maintain peace, and protect our citizens from the western threats. Through training and unity we stand as the righteous force against any who challenge our sovereignty.
         </p>
       </div>
     </section>
@@ -458,38 +93,92 @@
       <div class="section-title">Events</div>
       <div class="feature">
         <h3>Defensive Training</h3>
-        <p>Scrimmage against your fellow noobs uhhh</p>
+        <p>Engage in combat scrimmages against fellow noobs to develop your skills on both land, sea, and air.</p>
+      </div>
+      <div class="feature">
+        <h3>Raids</h3>
+        <p>Participate in cordinated operations against various Roblox games to demonstrate our might and capabilities.</p>
+      </div>
+      <div class="feature">
+        <h3>Clan Battles</h3>
+        <p>Engage in large-scale warfare against rival clans, showcasing our military superiority.</p>
+      </div>
+      <div class="feature">
+        <h3>Lore Events</h3>
+        <p>Immerse yourself in the rich lore of the Noobian universe through interactive combat sessions.</p>
+      </div>
+      <div class="feature">
+        <h3>Noobfrost</h3>
+        <p>Noobfrost is a permadeath combat roleplay game set in a non-canon post-apocalyptic world that has been frozen over.</p>
+      </div>
+      <div class="feature">
+        <h3>Contests</h3>
+        <p>Participate in occasional contests for things such as art, banners, and more!</p>
       </div>
     </section>
 
     <section
       class="parallax-section"
-      style="
-        background-image: url('testbackground1.png');
-      "
-    >
+      style="background-image: url('testbackground1.png')"
+    id="battles">
       <div class="fade-in-up">
         <h2>Battles</h2>
         <p>
-          KILL VAKKIES KILL VAKKIES KILL VAKKIES KILL VAKKIES KILL VAKKIES KILL
-          VAKKIES KILL VAKKIES KILL VAKKIES KILL VAKKIES
+          Experience the strength of our military forces as we engage in cordinated battles against opposing clans. Play in both foreign maps and familiar grounds in a variety of roles.
         </p>
+      </div>
+    </section>
+
+    <section class="battle-gallery">
+      <div class="section-title">Gallery</div>
+      <div class="carousel-container">
+        <button class="carousel-arrow left" aria-label="Previous image">❮</button>
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="2ndVarcia.png" alt="Second Battle of Varcia">
+              <p class="image-caption">Second Battle of Varcia - Win</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="GREGPIRE.png" alt="3nd vs Gregpire & 98th">
+              <p class="image-caption">3nd vs Gregpire & 98th - Win</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="Geonosis.png" alt="Battle of Geonosis">
+              <p class="image-caption">Battle of Geonosis - Win</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="Atoll.png" alt="3nd vs HFC @ Nardan Atoll">
+              <p class="image-caption">3nd vs HFC @ Nardan Atoll - Win</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="4hWar.png" alt="The 4 Hour War">
+              <p class="image-caption">The 4 Hour War - Win</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="CSC.png" alt="3nd vs CSC">
+              <p class="image-caption">3nd vs CSC - Win</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-arrow right" aria-label="Next image">❯</button>
+        <div class="carousel-dots"></div>
       </div>
     </section>
 
     <section class="benefits" id="benefits">
       <div class="section-title">Why Join the Noobic Stratocracy?</div>
       <div class="benefit">
-        <h3>Unrivaled Power</h3>
-        <p>Really cooool</p>
+        <h3>Unrivaled Cordination</h3>
+        <p>Enjoy our advanced systems and logistics, ensuring our group operates in a timely manner.</p>
       </div>
       <div class="benefit">
         <h3>Outrally Everyone</h3>
-        <p>And leave</p>
+        <p>Participate in massive military operations and demonstrate the power of coordinated force.</p>
       </div>
       <div class="benefit">
-        <h3>Culture</h3>
-        <p>uhhhhhhhhhutgv kjhbnjlmmk;l,</p>
+        <h3>Rich Culture</h3>
+        <p>Make your mark in our history of tradition and improve our sense of camaraderie spanning since our founding in 2015.</p>
       </div>
     </section>
 
@@ -497,19 +186,49 @@
       <div class="section-title" style="font-size: 1.5rem">
         Frequently Asked Questions
       </div>
-      <br />
       <details class="faq-item">
-        <summary>Why am I why why</summary>
-        <p>Fart</p>
+        <summary>What are the requirements to join?</summary>
+        <p>Infantrymen simply must be at least 13 years old, have Discord and Roblox accounts, and demonstrate basic brain function.</p>
       </details>
       <details class="faq-item">
-        <summary>GHEEL!!!!</summary>
-        <p>helllppp</p>
+        <summary>What training is provided?</summary>
+        <p>New recruits undergo basic training covering weapons, protocol, and group information. More training is given to those who join other divisions.</p>
       </details>
       <details class="faq-item">
-        <summary>Whaaaaaat</summary>
-        <p>dfwtyxjchgvujbigusagkgfhvbwliahdkgsvlahjdgwoluai</p>
+        <summary>How do I rank up?</summary>
+        <p>Promotions are handed out via recommendation from an NCO or Officer and are based on merit, time in group, activity, reputation, & overall reliability and ethic.</p>
       </details>
+    </section>
+
+       <section class="announcements" id="announcements" style="margin-top: 1rem">
+      <div class="section-title" style="font-size: 1.5rem">
+        Latest Announcements
+      </div>
+      <div class="announcement-grid">
+        <div class="announcement-card">
+          <div class="announcement-date">May 12th, 2025</div>
+          <h3>345th Blacklist</h3>
+          <p>Due to the complete disregard of our rules,</p>
+          <p>The 345th Infantry Regiment is to be blacklisted completely from any Stratocracy server and games. A 24 hour grace period will be given for people to leave all affiliation with said group. </p>
+          <p>After the grace period, anyone found within the 345th's server will be banned from our community. </p>
+          <div class="announcement-sender">Posted by: Gen. Gallantri</div>
+        </div>
+        <div class="announcement-card">
+          <div class="announcement-date">May 10th, 2025</div>
+          <h3>PSA: Noob Colors</h3>
+          <p>As a tight-knit community, it is a responsibility that's put on all ranks to ensure that everyone who wishes to participate in our events/games who wear our uniform remain the correct Noob colors.</p>
+          <p>Uniformity, not just solely in uniforms but also in being the correct noob colors, is apart of why our massive rallies look attractive. </p>
+          <p>As such, It is everyone's responsibility to ensure everyone is in the correct noob skintone!</p>
+          <div class="announcement-sender">Posted by: Gen. Gallantri</div>
+        </div>
+        <div class="announcement-card">
+          <div class="announcement-date">May 7th, 2025</div>
+          <h3>PSA</h3>
+          <p>People who wear West Noobian attire, either it be combats, formals, or anything, are immediately KOS. This also applies to West Noobians on the Civilian team.</p>
+          <p>Stop authorizing West Noobians. They fight for your subjugation and for a foreign nation to strip our lands of it's beauty. </p>
+          <div class="announcement-sender">Posted by: Gen. Gallantri</div>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -599,6 +318,7 @@
         </ul>
       </div>
     </footer>
+      </main>
     <script>
       const lines = ["Establishing uplink..."];
       const target = document.getElementById("type-target");
@@ -609,7 +329,7 @@
         if (i < lines.length) {
           if (char < lines[i].length) {
             target.textContent += lines[i].charAt(char++);
-            setTimeout(typeLine, 50);
+            setTimeout(typeLine, 40);
           } else {
             target.textContent += "\n";
             char = 0;
@@ -618,14 +338,16 @@
               target.textContent = "";
               target.classList.remove("typewrite");
               typeLine();
-            }, 333);
+            }, 300);
           }
         } else {
+          document.body.classList.remove('intro-active');
         }
       }
 
       window.addEventListener("load", () => {
-        setTimeout(typeLine, 333);
+        document.body.classList.add('intro-active');
+        setTimeout(typeLine, 300);
       });
     </script>
   </body>
@@ -644,4 +366,139 @@
   document.querySelectorAll(".fade-in-up").forEach((el) => {
     observer.observe(el);
   });
+</script>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+    sidebar.classList.toggle('open');
+    mainContent.classList.toggle('sidebar-open');
+  }
+</script>
+<script>
+class Carousel {
+  constructor(element) {
+    this.carousel = element;
+    this.track = this.carousel.querySelector('.carousel-track');
+    this.slides = Array.from(this.track.children);
+    this.nextButton = this.carousel.querySelector('.carousel-arrow.right');
+    this.prevButton = this.carousel.querySelector('.carousel-arrow.left');
+    this.dotsContainer = this.carousel.querySelector('.carousel-dots');
+    
+    this.slideWidth = this.slides[0].getBoundingClientRect().width;
+    this.currentIndex = 0;
+    this.isAnimating = false;
+    this.autoplayInterval = null;
+    
+    this.init();
+  }
+  
+  init() {
+    this.slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      dot.addEventListener('click', () => this.goToSlide(index));
+      this.dotsContainer.appendChild(dot);
+    });
+    
+    this.updateDots();
+    this.setSlidePositions();
+    
+    this.nextButton.addEventListener('click', () => this.nextSlide());
+    this.prevButton.addEventListener('click', () => this.prevSlide());
+    
+    this.addTouchSupport();
+    
+    this.startAutoplay();
+    
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+  
+  setSlidePositions() {
+    this.slides.forEach((slide, index) => {
+      slide.style.left = `${this.slideWidth * index}px`;
+    });
+  }
+  
+  moveToSlide(index) {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    
+    const targetPosition = -this.slideWidth * index;
+    this.track.style.transform = `translateX(${targetPosition}px)`;
+    this.currentIndex = index;
+    this.updateDots();
+    
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 500);
+  }
+  
+  nextSlide() {
+    const nextIndex = (this.currentIndex + 1) % this.slides.length;
+    this.moveToSlide(nextIndex);
+  }
+  
+  prevSlide() {
+    const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    this.moveToSlide(prevIndex);
+  }
+  
+  goToSlide(index) {
+    this.moveToSlide(index);
+  }
+  
+  updateDots() {
+    const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === this.currentIndex);
+    });
+  }
+  
+  addTouchSupport() {
+    let startX, moveX;
+    
+    this.carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+    
+    this.carousel.addEventListener('touchmove', (e) => {
+      moveX = e.touches[0].clientX;
+    });
+    
+    this.carousel.addEventListener('touchend', () => {
+      if (startX - moveX > 50) {
+        this.nextSlide();
+      } else if (moveX - startX > 50) {
+        this.prevSlide();
+      }
+    });
+  }
+  
+  startAutoplay() {
+    this.autoplayInterval = setInterval(() => {
+      this.nextSlide();
+    }, 5000);
+    
+    this.carousel.addEventListener('mouseenter', () => {
+      clearInterval(this.autoplayInterval);
+    });
+    
+    this.carousel.addEventListener('mouseleave', () => {
+      this.startAutoplay();
+    });
+  }
+  
+  handleResize() {
+    this.slideWidth = this.slides[0].getBoundingClientRect().width;
+    this.setSlidePositions();
+    this.moveToSlide(this.currentIndex);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselElement = document.querySelector('.carousel-container');
+  new Carousel(carouselElement);
+});
 </script>
