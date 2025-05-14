@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratocracy Laws</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <meta content="The Stratocracy's Laws" property="og:title" />
+    <meta
+      content="Learn about the laws and regulations of the Stratocracy."
+      property="og:description"
+    />
+    <meta content="eastnoobia.com/laws" property="og:url" />
+    <meta content="NoobicFlag.png" property="og:image" />
+    <meta content="#4acf4f" data-react-helmet="true" name="theme-color" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .laws-hero {
+        background: url("testbackground1.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fef3c7;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .laws-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .laws-hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .laws-hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .law-section {
+        padding: 4rem 2rem;
+        background: #f8fafc;
+      }
+
+      .law-section:nth-child(even) {
+        background: #f0fdfa;
+      }
+
+      .law-card {
+        background: #f0fdfa;
+        border: 2px solid #a7f3d0;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .law-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        border-color: #0369a1;
+      }
+
+      .law-card h3 {
+        color: #064e3b;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .law-card p {
+        color: #014d4d;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .law-card .law-number {
+        background: #0369a1;
+        color: #fef3c7;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .law-card .law-punishment {
+        background: rgba(167, 243, 208, 0.2);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        border-left: 4px solid #0369a1;
+      }
+
+      .law-card .law-punishment h4 {
+        color: #0369a1;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .laws-hero h1 {
+          font-size: 3rem;
+        }
+
+        .laws-hero p {
+          font-size: 1.2rem;
+        }
+
+        .law-section {
+          padding: 2rem 1rem;
+        }
+      }
+
+      .appeal-btn {
+        display: inline-block;
+        background: #c54343;
+        color: #fff;
+        padding: 0.6em 1.5em;
+        border-radius: 6px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-top: 0.7em;
+        transition: background 0.2s;
+        border: 2px solid #96dfbd;
+      }
+      .appeal-btn:hover {
+        background: #d26363;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout-wrapper">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+      <aside class="sidebar" id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/organization">Combat Groups</a></li>
+          <li><a href="/laws">Laws</a></li>
+          <li><a href="/ranks">Ranks</a></li>
+          <li><a href="/officers">Officers</a></li>
+          <li><a href="/library">Library</a></li>
+        </ul>
+      </aside>
+      <main class="main-content">
+        <header>
+          <h1>Stratocracy Laws</h1>
+        </header>
+        <nav>
+          <a href="#laws">Laws</a>
+          <a href="#punishments">Punishments</a>
+        </nav>
+
+        <section class="laws-hero">
+          <div class="fade-in-up">
+            <h1>Our Laws</h1>
+            <p>
+              The foundation of order and discipline within the Stratocracy.
+            </p>
+          </div>
+        </section>
+
+        <section id="laws" class="law-section">
+          <h2 class="section-title">Laws</h2>
+
+          <div class="law-card fade-in-up">
+            <h3>
+              <span class="law-number">LAW-000</span>FOLLOW DISCORD'S TERMS OF
+              SERVICE
+            </h3>
+            <ul style="margin-left: 1.5em">
+              <li>
+                1. General Prohibitions
+                <ul>
+                  <li>1-A. No discord crashers.</li>
+                  <li>1-B. No malicious files/links.</li>
+                  <li>1-C. No explosive/drug instructions.</li>
+                </ul>
+              </li>
+              <li>
+                2. Legal Compliance
+                <ul>
+                  <li>
+                    2-A. DDoSing and breaking federal laws is also not
+                    permitted.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-001</span>SPAMMING / PINGING</h3>
+            <p>
+              You are not allowed to ping any roles unless you are verifying or
+              following any formats within official channels. Flooding channels
+              with text or embeds will also result in punishment unless
+              authorized.
+            </p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-002</span>NSFW - Light</h3>
+            <p>
+              Posting something that may be suggestive but not NSFW may get your
+              message deleted or yourself warned. Continual posting may result
+              in a warn.
+            </p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-003</span>NSFW - Borderline</h3>
+            <p>
+              Borderline NSFW is unacceptable and will result in appropriate
+              actions taken by any NCO or higher. This may result in a warn,
+              kick, ban, or permanent discharge.
+            </p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-004</span>SEXUAL BEHAVIOR</h3>
+            <p>
+              Depending on circumstances, this may result in a warn or ban.
+              Light jokes are permitted depending on circumstances.
+            </p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-005</span>HARASSMENT</h3>
+            <p>
+              Discrimination outside of obvious jokes are not allowed. This
+              includes blatant slurs and harassment.
+            </p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-006</span>ADVERTISEMENTS</h3>
+            <p>Only allowed if permitted by an officer.</p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-007</span>INSENSITIVE CONTENT</h3>
+            <p>
+              Jokes that include sexual abuse material, killings, genocide and
+              rape are not permitted.
+            </p>
+          </div>
+
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">LAW-008</span>LOOPHOLES</h3>
+            <p>
+              Use your brain. Use common sense. Think before you post. If you
+              don't care then we don't need you here.
+            </p>
+          </div>
+        </section>
+
+        <section id="punishments" class="law-section">
+          <h2 class="section-title">Punishment System</h2>
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">DISCIPLINE</span></h3>
+            <ul style="margin-left: 1.5em">
+              <li>
+                <strong>4+ Warns:</strong> Once 4 warnings are reached,
+                punishment will be based on crimes committed (mute, temp ban,
+                etc). Additional warns at 4+ will also result in punishment.
+              </li>
+              <li>
+                <strong>8 Warns:</strong> You will be permanently banned from
+                the 3ND community unless waived by the Office of the General.
+              </li>
+            </ul>
+          </div>
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">DISCHARGES</span></h3>
+            <p>Discharge = permanent ban from the community.</p>
+          </div>
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">WARN EXPIRATION</span></h3>
+            <p>
+              Warns expire after 6 months. Expired warns don't affect total
+              count but can still influence decisions.
+            </p>
+          </div>
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">APPEALS</span></h3>
+            <p>
+              If you wish to appeal a ban or feel that an action against you is
+              unfair, appeal utilizing the following server.<br />
+              <a
+                href="https://discord.gg/mUZSrfSpwv"
+                target="_blank"
+                class="appeal-btn"
+                >APPEAL</a
+              >
+            </p>
+          </div>
+          <div class="law-card fade-in-up">
+            <h3><span class="law-number">ABUSE OF POWER</span></h3>
+            <ul style="margin-left: 1.5em">
+              <li><strong>NCOs:</strong> Contact the Chief Command Sergeant</li>
+              <li><strong>OFFICERS:</strong> Contact a member of NOOBCOM</li>
+              <li>
+                <strong>NOOBCOM:</strong> Contact the Commander or General
+                directly
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <footer>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li>Email: placeholder@placeholder.placeholder</li>
+              <li>Discord User: "dipstick."</li>
+              <li>
+                Discord Server:
+                <a href="https://discord.gg/noobia">discord.gg/noobia</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Roblox Groups</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+                  >Main Group</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35903039/3rd-Noob-Div-sion"
+                  >3rd Noob Division</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35848829/2nd-Noob-Div-sion"
+                  >2nd Noob Division</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35848809/1st-Noob-Div-sion"
+                  >1st Noob Division</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Games</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/98626216952426/Naramo-Nuclear-Plant"
+                  >Naramo Nuclear Plant</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/6843213754/Centurion-Shoreline"
+                  >Centurion Shoreline</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/7020320814/Sagittarius-Hydroelectric-Dam"
+                  >Sagittarius Hydroelectric Dam</a
+                >
+              </li>
+              <li>
+                <a href="https://www.roblox.com/games/5361599999/Noobic-Sea"
+                  >Noobic Sea</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/11747678032/South-Noobic-Sea"
+                  >South Noobic Sea</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Socials</h4>
+            <ul>
+              <li><a href="https://discord.gg/noobia">Discord</a></li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+                  >Roblox Group</a
+                >
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".fade-in-up").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.querySelector(".main-content");
+        sidebar.classList.toggle("open");
+        mainContent.classList.toggle("sidebar-open");
+      }
+    </script>
+  </body>
+</html>
