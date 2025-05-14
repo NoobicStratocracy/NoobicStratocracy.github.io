@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratocracy Organization</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <meta content="The Stratocracy's Organization" property="og:title" />
+    <meta
+      content="Explore the combat groups of the Stratocracy and find your place in our military."
+      property="og:description"
+    />
+    <meta content="eastnoobia.com/organization" property="og:url" />
+    <meta content="NoobicFlag.png" property="og:image" />
+    <meta content="#4acf4f" data-react-helmet="true" name="theme-color" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .divisions-hero {
+        background: url("background3.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fef3c7;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .divisions-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .divisions-hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .divisions-hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .divisions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .division-card {
+        background: #f0fdfa;
+        border: 2px solid #a7f3d0;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        position: relative;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .division-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        border-color: #0369a1;
+      }
+
+      .division-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid #a7f3d0;
+      }
+
+      .division-content {
+        padding: 1.2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .division-content h3 {
+        font-size: 1.8rem;
+        color: #064e3b;
+        margin-bottom: 1rem;
+      }
+
+      .division-content p {
+        color: #014d4d;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .division-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #0369a1;
+        color: #fef3c7;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .division-link {
+        display: block;
+        width: 100%;
+        padding: 0.6rem 1.2rem;
+        background: #0369a1;
+        color: #fef3c7;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .division-link:hover {
+        background: #064e3b;
+        transform: translateY(-2px);
+      }
+
+      .division-stats {
+        display: flex;
+        gap: 0.8rem;
+        margin: 0.8rem 0 0 0;
+        padding: 0.8rem;
+        background: rgba(167, 243, 208, 0.2);
+        border-radius: 8px;
+      }
+
+      .stat {
+        flex: 1;
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #0369a1;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #064e3b;
+      }
+
+      @media (max-width: 768px) {
+        .divisions-hero h1 {
+          font-size: 3rem;
+        }
+
+        .divisions-hero p {
+          font-size: 1.2rem;
+        }
+
+        .divisions-grid {
+          padding: 2rem 1rem;
+        }
+      }
+
+      .division-bottom-group {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .division-bottom-group .division-stats {
+        margin-bottom: 0.8rem;
+        margin-top: 0;
+      }
+      .division-bottom-group .division-link {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout-wrapper">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+      <aside class="sidebar" id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/organization">Combat Groups</a></li>
+          <li><a href="/laws">Laws</a></li>
+          <li><a href="/ranks">Ranks</a></li>
+          <li><a href="/officers">Officers</a></li>
+          <li><a href="/library">Library</a></li>
+        </ul>
+      </aside>
+      <main class="main-content">
+        <header>
+          <h1>Divisions</h1>
+        </header>
+        <nav>
+          <a href="#open">Open</a>
+          <a href="#tryouts">Tryouts</a>
+          <a href="#applications">Applications</a>
+          <a href="#recruiting">Recruiting</a>
+        </nav>
+
+        <section class="divisions-hero">
+          <div class="fade-in-up">
+            <h1>Our Organization</h1>
+            <p>
+              Choose an optional specialized group that plays a crucial role in
+              our military's success.
+            </p>
+          </div>
+        </section>
+
+        <section id="open" class="division-section">
+          <h2 class="section-title">Open Divisions</h2>
+          <p class="section-subtitle">
+            These divisions are open for anyone to join at any time.
+          </p>
+          <div class="divisions-grid">
+            <div class="division-card fade-in-up">
+              <img src="1nf.webp" class="division-image" />
+              <div class="division-badge">Open</div>
+              <div class="division-content">
+                <h3>1st Noobic Fleet</h3>
+                <p>
+                  This is the group's primary naval division. We specialize in
+                  naval and aerial combat. From shooting large battleship
+                  cannons to dogfighting in the skies, we are skilled combatants
+                  in everything naval.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="1700">1.7k+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.com/invite/8PNBTRqHEV" class="division-link" target="_blank" rel="noopener noreferrer">Join Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="division-card fade-in-up">
+              <img src="gsmc.png" class="division-image" />
+              <div class="division-badge">Open</div>
+              <div class="division-content">
+                <h3>Ground Service Medical Corps</h3>
+                <p>
+                  The Ground Service Medical Corps is the Stratocracy military's
+                  medical branch, our job is to support the wider military by
+                  providing combat medics to ensure the health of our service
+                  members, thus enhancing their combat effectiveness.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="700">700+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="/gsmc" class="division-link" target="_blank" rel="noopener noreferrer">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="tryouts" class="division-section">
+          <h2 class="section-title">Tryout Divisions</h2>
+          <p class="section-subtitle">
+            These divisions require a tryout to join. Show your skills and
+            dedication to join these forces.
+          </p>
+          <div class="divisions-grid">
+            <div class="division-card fade-in-up">
+              <img src="marines.webp" class="division-image" />
+              <div class="division-badge">Tryout</div>
+              <div class="division-content">
+                <h3>Noobic Marine Corps</h3>
+                <p>
+                  The Marines of the Stratocracy specialize FPS warfare. Our
+                  Corps functions as a conjunction unit between the Naval and
+                  Ground Services, operating as an infantry-based fast reaction
+                  force. We have the capability to operate and support missions
+                  in any genre of warfare, including platforms outside ROBLOX.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="700">700+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.com/invite/8PNBTRqHEV" class="division-link" target="_blank" rel="noopener noreferrer">Join Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="division-card fade-in-up">
+              <img src="NAC.png" class="division-image" />
+              <div class="division-badge">Tryout</div>
+              <div class="division-content">
+                <h3>Noobic Armored Corps</h3>
+                <p>
+                  These guys are responsible for shooting armor, operating
+                  armor, and having a great time while doing so. From Armored
+                  Cars to Tanks and other heavy vehicles, these guys do it all.
+<br><br>
+                  The Noobic Armored Corps consist of 3 support battalions under each infantry division.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="190">190+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.gg/noobia" class="division-link" target="_blank" rel="noopener noreferrer">Await Tryout</a>
+                </div>
+              </div>
+            </div>
+            <div class="division-card fade-in-up">
+              <img src="5nso.png" class="division-image" />
+              <div class="division-badge">Tryout</div>
+              <div class="division-content">
+                <h3>Noobic Special Operations Command</h3>
+                <p>
+                  NOOBSOC combines the Ground and Naval Services to act as a hub for people interested in competitive TPS/FPS combat.<br><br>
+                  <ul style="margin: -0.5em 0 -0.5em 1em; padding: 0;">
+                    <li><strong>5th Noobic Special Operations ("Operators")</strong><br>
+                      <span style="font-size: 0.97em;">Dedicated TPS Battalion of NOOBSOC</span>
+                    </li>
+                    <li><strong>Noobic Marine Special Operations ("Raiders")</strong><br>
+                      <span style="font-size: 0.97em;">Dedicated FPS Battalion of NOOBSOC</span>
+                    </li>
+                  </ul>
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="190">190+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.gg/noobia" class="division-link" target="_blank" rel="noopener noreferrer">Await Tryout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="applications" class="division-section">
+          <h2 class="section-title">Application Divisions</h2>
+          <p class="section-subtitle">
+            Submit an application to join these divisions. You will be evaluated
+            for acceptance into these forces.
+          </p>
+          <div class="divisions-grid">
+            <div class="division-card fade-in-up">
+              <img src="9mpb.png" class="division-image" />
+              <div class="division-badge">Application</div>
+              <div class="division-content">
+                <h3>9th Noobic Military Police Battalion</h3>
+                <p>This division is responsible for the protection of most non-combat home events. From promotion ceremonies to enlisted trainings, MP will be there.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="110">110+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.com/invite/w95njQSgTx" class="division-link" target="_blank" rel="noopener noreferrer">Apply Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="recruiting" class="division-section">
+          <h2 class="section-title">Recruiting Divisions</h2>
+          <p class="section-subtitle">
+            These divisions require requests during specific open periods.
+          </p>
+          <div class="divisions-grid">
+            <div class="division-card fade-in-up">
+              <img src="2nia.png" class="division-image" />
+              <div class="division-badge">Classified</div>
+              <div class="division-content">
+                <h3>2nd Noobic Intelligence Agency</h3>
+                <p>We are responsible for organizing and handling Intelligence related to any Internal or External places, people or groups of interest.
+                </p>
+                  <strong>The rest is classified.</strong>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value">Classified</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.gg/noobia" class="division-link" target="_blank" rel="noopener noreferrer">Unlearn</a>
+                </div>
+              </div>
+            </div>
+            <div class="division-card fade-in-up">
+              <img src="6nla.png" class="division-image" />
+              <div class="division-badge">Recruitment</div>
+              <div class="division-content">
+                <h3>6th Noobic Logistics Agency</h3>
+                <p>These specialists are responsible for designing new clothing assets, funding infantrymen robux to purchase said assets, and updating personnel's ribbon racks.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="5">5+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.gg/noobia" class="division-link" target="_blank" rel="noopener noreferrer">Await Recruitment</a>
+                </div>
+              </div>
+            </div>
+            <div class="division-card fade-in-up">
+              <img src="7ntc.png" class="division-image" />
+              <div class="division-badge">Recruitment</div>
+              <div class="division-content">
+                <h3>7th Noobic Training Corps</h3>
+                <p>These instructors are responsible for training the next generation of Soldiers for the Stratocracy. They are also able to host some community events with supervision. This is an excellent division to join if you wish to become an officer here.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="90">90+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.gg/noobia" class="division-link" target="_blank" rel="noopener noreferrer">Await Recruitment</a>
+                </div>
+              </div>
+            </div>
+            <div class="division-card fade-in-up">
+              <img src="8nec.png" class="division-image" />
+              <div class="division-badge">Recruitment</div>
+              <div class="division-content">
+                <h3>8th Noobic Engineer Corps</h3>
+                <p>8NEC is a group of developers and asset creators dedicated to the Stratocracy. They push out new raid maps, maintain active ones, and do any other studio work in between.
+                </p>
+                <div class="division-bottom-group">
+                  <div class="division-stats">
+                    <div class="stat">
+                      <div class="stat-value count-up" data-target="20">20+</div>
+                      <div class="stat-label">Active Members</div>
+                    </div>
+                  </div>
+                  <a href="https://discord.gg/noobia" class="division-link" target="_blank" rel="noopener noreferrer">Await Recruitment</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <style>
+          .division-section {
+            padding: 4rem 2rem;
+            background: #f8fafc;
+          }
+
+          .division-section:nth-child(even) {
+            background: #f0fdfa;
+          }
+
+          .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #064e3b;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+          }
+
+          .section-subtitle {
+            text-align: center;
+            color: #0369a1;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+          }
+
+          .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #0369a1;
+            border-radius: 2px;
+          }
+
+          .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+          }
+
+          .division-card {
+            background: #f0fdfa;
+            border: 2px solid #a7f3d0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .division-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-color: #0369a1;
+          }
+
+          .division-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 2px solid #a7f3d0;
+          }
+
+          .division-content {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+          }
+
+          .division-content h3 {
+            font-size: 1.5rem;
+            color: #064e3b;
+            margin-bottom: 0.8rem;
+          }
+
+          .division-content p {
+            color: #014d4d;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-size: 0.95rem;
+          }
+
+          .division-badge {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            background: #0369a1;
+            color: #fef3c7;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+
+          .division-bottom-group {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+          }
+          .division-bottom-group .division-stats {
+            margin-bottom: 0.8rem;
+            margin-top: 0;
+          }
+          .division-bottom-group .division-link {
+            margin-top: 0;
+          }
+
+          .division-stats {
+            display: flex;
+            gap: 0.8rem;
+            margin: 0.8rem 0 0 0;
+            padding: 0.8rem;
+            background: rgba(167, 243, 208, 0.2);
+            border-radius: 8px;
+          }
+
+          .stat {
+            flex: 1;
+            text-align: center;
+          }
+
+          .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0369a1;
+          }
+
+          .stat-label {
+            font-size: 0.8rem;
+            color: #064e3b;
+          }
+
+          .division-link {
+            display: block;
+            width: 100%;
+            padding: 0.6rem 1.2rem;
+            background: #0369a1;
+            color: #fef3c7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+            text-align: center;
+          }
+
+          .division-link:hover {
+            background: #064e3b;
+            transform: translateY(-2px);
+          }
+
+          @media (max-width: 1200px) {
+            .divisions-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+          }
+
+          @media (max-width: 768px) {
+            .division-section {
+              padding: 2rem 1rem;
+            }
+
+            .section-title {
+              font-size: 2rem;
+            }
+
+            .divisions-grid {
+              grid-template-columns: 1fr;
+              gap: 1rem;
+            }
+          }
+        </style>
+
+        <footer>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li>Email: placeholder@placeholder.placeholder</li>
+              <li>Discord User: "dipstick."</li>
+              <li>
+                Discord Server:
+                <a href="https://discord.gg/noobia">discord.gg/noobia</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Roblox Groups</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+                  >Main Group</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35903039/3rd-Noob-Div-sion"
+                  >3rd Noob Division</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35848829/2nd-Noob-Div-sion"
+                  >2nd Noob Division</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/35848809/1st-Noob-Div-sion"
+                  >1st Noob Division</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Games</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/98626216952426/Naramo-Nuclear-Plant"
+                  >Naramo Nuclear Plant</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/6843213754/Centurion-Shoreline"
+                  >Centurion Shoreline</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/7020320814/Sagittarius-Hydroelectric-Dam"
+                  >Sagittarius Hydroelectric Dam</a
+                >
+              </li>
+              <li>
+                <a href="https://www.roblox.com/games/5361599999/Noobic-Sea"
+                  >Noobic Sea</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.roblox.com/games/11747678032/South-Noobic-Sea"
+                  >South Noobic Sea</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Socials</h4>
+            <ul>
+              <li><a href="https://discord.gg/noobia">Discord</a></li>
+              <li>
+                <a
+                  href="https://www.roblox.com/communities/2704934/The-Noobic-Stratocracy"
+                  >Roblox Group</a
+                >
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".fade-in-up").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.querySelector(".main-content");
+        sidebar.classList.toggle("open");
+        mainContent.classList.toggle("sidebar-open");
+      }
+    </script>
+    <script>
+    function animateCountUp(el, target, duration = 1200) {
+      let start = 0;
+      let startTime = null;
+      const suffix = el.textContent.replace(/[0-9.,]/g, '');
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const value = Math.floor(progress * (target - start) + start);
+        el.textContent = value.toLocaleString() + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toLocaleString() + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    const countUpObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            if (!isNaN(target) && !el.classList.contains('counted')) {
+              animateCountUp(el, target);
+              el.classList.add('counted');
+            }
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    document.querySelectorAll('.count-up').forEach(el => {
+      countUpObserver.observe(el);
+    });
+    </script>
+  </body>
+</html>
