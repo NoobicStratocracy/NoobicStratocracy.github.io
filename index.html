@@ -302,7 +302,7 @@
         if (i < lines.length) {
           if (char < lines[i].length) {
             target.textContent += lines[i].charAt(char++);
-            setTimeout(typeLine, 40);
+            setTimeout(typeLine, 33);
           } else {
             target.textContent += "\n";
             char = 0;
@@ -330,7 +330,7 @@
           target.textContent = "";
           target.classList.add("typewrite");
         }
-        setTimeout(typeLine, 2500);
+        setTimeout(typeLine, 1000);
       });
 
       const observer = new IntersectionObserver(
